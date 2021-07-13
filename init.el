@@ -17,6 +17,9 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
+;;;scimax
+(setq scimax-dir "~/Tools/scimax")
+(add-to-list 'load-path "~/Tools/scimax")
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -179,9 +182,9 @@
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
-(require 'init-local nil t)
 
-
+(require 'init-scimax)
+(require 'init-local)
 
 (provide 'init)
 
@@ -190,3 +193,4 @@
 ;; no-byte-compile: t
 ;; End:
 ;;; init.el ends here
+(put 'set-goal-column 'disabled nil)
